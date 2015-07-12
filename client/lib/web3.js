@@ -3149,8 +3149,8 @@ SolidityFunction.prototype.call = function () {
 
     if (!callback) {
       var output = web3.eth.call(payload, defaultBlock);
-      console.log("pl",payload);
-      console.log("o", output);
+      // console.log("pl",payload);
+      // console.log("o", output);
       return this.unpackOutput(output);
     } 
         
@@ -3329,8 +3329,9 @@ HttpProvider.prototype.send = function (payload) {
         //return;
     //}
 
-    var result = request.responseText;
-  console.log("RES:", result);
+  var result = request.responseText;
+  // console.log("PAYLOAD:", payload);
+  // console.log("RES:", result);
     try {
         result = JSON.parse(result);
     } catch(e) {
@@ -3352,7 +3353,7 @@ HttpProvider.prototype.sendAsync = function (payload, callback) {
             } catch(e) {
                 error = errors.InvalidResponse(result);                
             }
-
+          //console.log(payload, result);
             callback(error, result);
         }
     };
