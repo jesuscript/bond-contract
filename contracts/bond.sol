@@ -2,7 +2,7 @@ contract bond{
 	function bond(uint initValue, uint coupRate){
 		balances[msg.sender][0] = initValue;
 		total = initValue;
-		couponAmount = (total/10000) * coupRate * 10^18;
+		couponAmount = (total/10000) * coupRate * 10^15;
 	}
 
 	function sendBond(address recipient, uint amount, uint state) returns (bool successful){
@@ -33,12 +33,12 @@ contract bond{
 
 	function redeem(){
 		if (balances[msg.sender][currentInterestPeriod] == 0 && redeemed != true) return;
-		msg.sender.send(balances[msg.sender][currentInterestPeriod]*10^18);
+		msg.sender.send(balances[msg.sender][currentInterestPeriod]*10^15);
 		balances[msg.sender][currentInterestPeriod] = 0;
 	}
 
 	function payRedemption(){
-		if ((msg.value*10^18) != total) {msg.sender.send(msg.value);}
+		if ((msg.value*10^15) != total) {msg.sender.send(msg.value);}
 		redeemed = true;
 	}
 
