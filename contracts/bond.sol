@@ -1,7 +1,8 @@
 contract bond{
-	function bond(uint initValue){
+	function bond(uint initValue, uint coupRate){
 		balances[msg.sender][0] = initValue;
 		total = initValue;
+		couponAmount = (total/10000) * coupRate * 10^18;
 	}
 
 	function sendBond(address recipient, uint amount, uint state) returns (bool successful){
@@ -12,6 +13,7 @@ contract bond{
 	}
 
 	function payInterest(uint coupon) returns (bool s){
+		if (msg.value != couponAmount) {msg.sender.send(msg.value);}
 		if (currentInterestPeriod != coupon) return false;
 		if (msg.sender != owner) return false;
 		uint now = block.number;
@@ -42,8 +44,10 @@ contract bond{
 
 address public owner;
 uint public total;
+uint public couponAmount;
 uint public currentInterestPeriod;
 bool public redeemed;
+
 mapping(address =>mapping(uint=>uint)) public balances;
 
 interestPayment[] public interestPayments;
