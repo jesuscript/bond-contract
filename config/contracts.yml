@@ -1,8 +1,4 @@
 development:
-  SimpleStorage:
-    args:
-      - 100
-staging:
-  SimpleStorage:
+  bond:
     args:
       - 100
