@@ -1,0 +1,5 @@
+type: "meteor" #other options: meteor, manual
+contracts: ["contracts/**/*.sol"]
+output: "client/tmp/abi.js"
+blockchainConfig: "config/blockchain.yml"
+contractsConfig: "config/contracts.yml"
