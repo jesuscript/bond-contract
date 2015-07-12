@@ -11,7 +11,7 @@ uint public six;
 		two = 2;
 	}
 	function seven(uint a)returns(uint a){
-		returns a;
+		returns one;
 	}
 	function eight(){}
 
