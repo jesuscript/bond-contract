@@ -1,4 +1,5 @@
 contract SimpleStorage {
+	
   uint public storedData;
 
   function SimpleStorage(uint initialValue) {
