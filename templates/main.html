@@ -3,9 +3,13 @@
     <h1>Bond</h1>
     <div class="row">
       <div class="col-md-12">
+        {{> balance}}
       </div>
     </div>
   </div>
   
 </body>
 
+<template name="balance">
+  Balance: {{value}}
+</template>

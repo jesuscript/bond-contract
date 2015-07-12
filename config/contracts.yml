@@ -1,5 +1,5 @@
 development:
-  bond:
+  Bond:
     args:
       - 1000
       - 500
